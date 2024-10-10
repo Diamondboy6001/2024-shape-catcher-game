@@ -1,5 +1,5 @@
-# Shape Catcher Game
+# Shhmungafingle gaming
 
-A simple shape catcher game written in JavaScript using the HTML5 canvas.
+A simple shape catcher game written in JavaScript using shmungafingle powers.
 
-More details to follow.
+Shmungafingle

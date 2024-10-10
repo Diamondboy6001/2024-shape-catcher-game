@@ -1,9 +1,22 @@
 //@ts-check
+import { canvas, ctx} from "./common/canvas.js";
+import { GameManager } from "./game-manager.js";
 
-/** @type {HTMLCanvasElement} */
-//@ts-ignore canvas is an HTMLCanvasElement
-const canvas = document.getElementById("game-canvas");
+let game = new GameManager();
+game.initialize()
 
-/** @type {CanvasRenderingContext2D} */
-//@ts-ignore ctx is a CanvasRenderingContext2D object
-const ctx = canvas.getContext("2d");
+let lastTimeStamp = 0;
+
+function gameLoop(timeStamp) {
+    let elapsedTime = timeStamp - lastTimeStamp;
+    lastTimeStamp = timeStamp;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+    game.update(elapsedTime);
+	game.draw();
+
+    window.requestAnimationFrame(gameLoop);
+}
+
+window.requestAnimationFrame(gameLoop);
